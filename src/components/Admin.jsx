@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+// admin page
 export default function Admin() {
   const [tickets, setTickets] = useState([]);
   const [selectedTicket, setSelectedTicket] = useState(null);
