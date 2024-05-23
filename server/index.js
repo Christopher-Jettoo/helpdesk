@@ -9,16 +9,19 @@ app.use(express.json());
 let tickets = [];
 let idCounter = 1;
 
+
+
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
+
 app.post('/tickets', (req, res) => {
   const ticket = { id: idCounter++, status: 'new', ...req.body };
   tickets.push(ticket);
   console.log(`Would normally send email here with body: ${JSON.stringify(ticket)}`);
   res.status(201).json(ticket);
 });
-
-// app.get('/', (req, res) => {
-//   res.send('hello world');
-// });
 
 app.get('/tickets', (req, res) => {
   res.json(tickets);
@@ -45,6 +48,3 @@ app.put('/tickets/:id', (req, res) => {
 const server = app.listen(process.env.PORT || 4000, () => {
   console.log(`Express server listening on port ${server.address().port}`);
 });
-
-
-export default app;
