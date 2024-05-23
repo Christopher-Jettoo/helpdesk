@@ -7,7 +7,7 @@ export default function Admin() {
 
   useEffect(() => {
     const fetchTickets = async () => {
-      const response = await fetch('https://helpdesk-nine-bice.vercel.app/tickets');
+      const response = await fetch('http://localhost:4000/tickets');
       const data = await response.json();
       setTickets(data);
     };
@@ -22,7 +22,7 @@ export default function Admin() {
   const handleUpdateTicket = async () => {
     const updatedTicketData = { status: selectedTicket.status, response: userResponse }; 
 
-    const response = await fetch(`https://helpdesk-nine-bice.vercel.app/tickets/${selectedTicket.id}`, {
+    const response = await fetch(`http://localhost:4000/tickets/${selectedTicket.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
