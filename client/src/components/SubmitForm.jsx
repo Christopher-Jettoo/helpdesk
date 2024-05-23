@@ -9,7 +9,7 @@ export default function SubmitForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:4000/tickets', {
+    const response = await fetch('https://helpdesk-client-gilt.vercel.app/tickets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
