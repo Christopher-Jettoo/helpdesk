@@ -1,20 +1,22 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-// const port = process.env.PORT || 4000;
 
-app.use(cors());
+
+const corsOptions = {
+  origin: 'https://helpdesk-client-gilt.vercel.app',
+  optionsSuccessStatus: 200
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 let tickets = [];
 let idCounter = 1;
 
-
-
 app.get('/', (req, res) => {
   res.send('Server is running');
 });
-
 
 app.post('/tickets', (req, res) => {
   const ticket = { id: idCounter++, status: 'new', ...req.body };
@@ -40,10 +42,6 @@ app.put('/tickets/:id', (req, res) => {
   ticket.response = req.body.response || ticket.response;
   res.json(ticket);
 });
-
-// app.listen(port, () => {
-//   console.log(`Express server listening on port ${port}`);
-// });
 
 const server = app.listen(process.env.PORT || 4000, () => {
   console.log(`Express server listening on port ${server.address().port}`);
