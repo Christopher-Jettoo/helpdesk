@@ -41,9 +41,9 @@ app.put('/tickets/:id', (req, res) => {
   res.json(ticket);
 });
 
-app.listen(port, () => {
-  console.log(`Express server listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Express server listening on port ${port}`);
+// });
 
 const server = app.listen(process.env.PORT || 4000, () => {
   console.log(`Express server listening on port ${server.address().port}`);
