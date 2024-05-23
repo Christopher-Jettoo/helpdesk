@@ -11,6 +11,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log('Incoming request from origin:', req.get('Origin'));
+  next();
+});
+
 let tickets = [];
 let idCounter = 1;
 
