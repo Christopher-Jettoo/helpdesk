@@ -45,3 +45,6 @@ app.put('/tickets/:id', (req, res) => {
 const server = app.listen(process.env.PORT || 4000, () => {
   console.log(`Express server listening on port ${server.address().port}`);
 });
+
+
+export default app;
