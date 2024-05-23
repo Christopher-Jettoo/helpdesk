@@ -16,9 +16,9 @@ app.post('/tickets', (req, res) => {
   res.status(201).json(ticket);
 });
 
-// app.get('/', (req, res) => {
-//   res.send('hello world');
-// });
+app.get('/', (req, res) => {
+  res.send('hello world');
+});
 
 app.get('/tickets', (req, res) => {
   res.json(tickets);
